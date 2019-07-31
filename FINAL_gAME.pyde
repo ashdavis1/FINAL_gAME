@@ -16,6 +16,8 @@ def setup():
     # frameRate = 10
     # onevone = "1 v 1"
     # twovtwo = " 2 v 2"
+    # playerone = False
+    # playertwo = False
     presshere = "Press Here"
     page = 1
     
@@ -60,24 +62,29 @@ def secondScreen():
     textSize (90)
     text ("YO GOOGLE", 800,1200)
     text(yogoogle ,570,100)
+
 #rect 1 
+
     fill(0)
-    rect(300,250,350,250)
-    fill(255)
-    textSize (90)
-    text ("1 v 1", 320,350)
+    if mousePressed:
+        rect(300,250,350,250)
+        fill(255)
+        textSize (90)
+        text ("1 v 1", 320,350)
     # text(onevone ,320,350)
-    textSize(32)
-    text ("Press Here", 325,450)
+        textSize(32)
+        text ("Press Here", 325,450)
+   
 # rect 3 
     fill(0)
-    rect(1000,250,350,250)
-    fill(255)
-    textSize (90)
-    text ("2 v 2", 1025,350)
-    textSize(32)
-    text ("Press Here", 1020,450)
-    text(presshere,1020,450)
+    if mousePressed:
+        rect(1000,250,350,250)
+        fill(255)
+        textSize (90)
+        text ("2 v 2", 1025,350)
+        textSize(32)
+        text ("Press Here", 1020,450)
+        text(presshere,1020,450)
 
 def onevone():
     print("done")
@@ -86,3 +93,4 @@ def onevone():
     image(img,0,200,450,450)
     img = loadImage ("android2.png")
     image(img,1250,225,450,450)
+    
