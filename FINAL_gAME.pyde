@@ -1,6 +1,6 @@
 def setup():
     global page
-    global yogoogle,x,y,gameStarted,firstScreen,onevone,twovtwo,presshere
+    global yogoogle,x,y,gameStarted,firstScreen,onevone,twovtwo,presshere,score
     size(1680,1000)
     background(90, 100, 255)
     yogoogle = "YO GOOGLE"
@@ -14,10 +14,11 @@ def setup():
     # secondScreen (x2,y2)
     gameStarted = False
     # frameRate = 10
-    # onevone = "1 v 1"
-    # twovtwo = " 2 v 2"
+    playerone = False
+    playertwo = False
     presshere = "Press Here"
     page = 1
+    score = 0
     
 
     
@@ -78,6 +79,9 @@ def secondScreen():
     textSize(32)
     text ("Press Here", 1020,450)
     text(presshere,1020,450)
+    
+
+        
 
 def onevone():
     print("done")
@@ -86,3 +90,11 @@ def onevone():
     image(img,0,200,450,450)
     img = loadImage ("android2.png")
     image(img,1250,225,450,450)
+    fill (255,0,0)
+    textSize(90)
+    text("YO SCORE: ",0,100)
+    text(score,500,100)
+    fill(0)
+    text("YO SCORE: ",1100,100)
+    text(score,1575,100)
+    
