@@ -1,8 +1,3 @@
-canvas_x = 600
-canvas_y = 600
-rectangle_count = 2
-rectangle_height = 250
-rectangle_width = canvas_x / rectangle_count
 def setup():
     global twovtwo
     global page
@@ -44,20 +39,22 @@ def draw():
     pass
 def mousePressed():
     global page
+    if mousePressed:
+        secondScreen()
     if page == 1:
-        if mouseX >= rectangle_width and mouseY >= rectangle_height:
-            rect(mouseX, mouseY, 350, 320)
-            secondScreen()
-            page = 2
-    elif page == 2:
-        if mouseX >= rectangle_width and mouseY >= rectangle_height:
-            rect(mouseX, mouseY, 350, 320)
+        if mouseX > 300 and mouseX < 550 and mouseY > 300 and mouseY < 550:
             onevone()
-            page = page + 2
-        #     if mouseX >= rectangle_width and mouseY >= rectangle_height:
-        #         rect(mouseX, mouseY, 1025, 350)
-        #         twovtwo()
-        #         page = page + 1
+            page == 2
+        elif mouseX > 1000 and mouseX < 1350 and mouseY > 250 and mouseY < 500:
+            twovtwo()
+            page == 3
+        else:
+            print("done")
+    # elif page == 4:
+    #     if mouseX >= rectangle_width and mouseY >= rectangle_height:
+    #         rect(mouseX, mouseY, 1025, 350)
+    #         twovtwo()
+    #         page = page + 1
 
     global gameStarted
     gameStarted = True
@@ -117,3 +114,7 @@ def onevone():
     textSize (90)
     text ("YO GOOGLE", 800,1200)
     text(yogoogle ,570,100)
+
+def twovtwo():
+    size(1680,1000)
+    background(52,67,235)
