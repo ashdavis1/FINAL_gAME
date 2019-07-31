@@ -19,11 +19,11 @@ def setup():
     presshere = "Press Here"
     page = 1
     score = 0
-    
 
-    
-    
-    
+
+
+
+
 def firstScreen(x,y):
 # start screen
     fill(random(255),random(255),random(255))
@@ -46,10 +46,10 @@ def mousePressed():
         page = page + 1
     global gameStarted
     gameStarted = True
-   
-    
-    
-            
+
+
+
+
 def secondScreen():
     # print("To Do")
     size(1680,1000)
@@ -61,27 +61,29 @@ def secondScreen():
     textSize (90)
     text ("YO GOOGLE", 800,1200)
     text(yogoogle ,570,100)
-#rect 1 
-    fill(0)
-    rect(300,250,350,250)
-    fill(255)
-    textSize (90)
-    text ("1 v 1", 320,350)
-    # text(onevone ,320,350)
-    textSize(32)
-    text ("Press Here", 325,450)
-# rect 3 
-    fill(0)
-    rect(1000,250,350,250)
-    fill(255)
-    textSize (90)
-    text ("2 v 2", 1025,350)
-    textSize(32)
-    text ("Press Here", 1020,450)
-    text(presshere,1020,450)
-    
 
-        
+#rect 1
+
+    fill(0)
+    if mousePressed:
+        rect(300,250,350,250)
+        fill(255)
+        textSize (90)
+        text ("1 v 1", 320,350)
+    # text(onevone ,320,350)
+        textSize(32)
+        text ("Press Here", 325,450)
+
+# rect 3
+    fill(0)
+    if mousePressed:
+        rect(1000,250,350,250)
+        fill(255)
+        textSize (90)
+        text ("2 v 2", 1025,350)
+        textSize(32)
+        text ("Press Here", 1020,450)
+        text(presshere,1020,450)
 
 def onevone():
     print("done")
@@ -90,11 +92,3 @@ def onevone():
     image(img,0,200,450,450)
     img = loadImage ("android2.png")
     image(img,1250,225,450,450)
-    fill (255,0,0)
-    textSize(90)
-    text("YO SCORE: ",0,100)
-    text(score,500,100)
-    fill(0)
-    text("YO SCORE: ",1100,100)
-    text(score,1575,100)
-    
