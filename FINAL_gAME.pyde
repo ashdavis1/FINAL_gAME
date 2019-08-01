@@ -39,7 +39,6 @@ def setup():
     score = 0
     currentTime = millis()
     startTimer = 0
-    startTime = True
     ONEVONE = False
     song_order = ["PYT by Michael Jackson","If it isn't love by New edition", "Pretty brown eyes by Mint Condition"]
     correctanswer = "PYT by Michael Jackson"
@@ -272,9 +271,8 @@ def draw():
         textFont(f)
         fill(0, 0, 0)
         text("Time:", 900, 1000)
-        if  gameclock <= 15:
-            startTimer = False
-            noLoop()
+        if gameclock == 15:
+            gameclock == False
     
 
 
