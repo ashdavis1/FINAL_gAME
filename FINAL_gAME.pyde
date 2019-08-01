@@ -75,25 +75,23 @@ def secondScreen():
 #rect 1
 
     fill(0)
-    if mousePressed:
-        rect(300,250,350,250)
-        fill(255)
-        textSize (90)
-        text ("1 v 1", 320,350)
+    rect(300,250,350,250)
+    fill(255)
+    textSize (90)
+    text ("1 v 1", 320,350)
     # text(onevone ,320,350)
-        textSize(32)
-        text ("Press Here", 325,450)
+    textSize(32)
+    text ("Press Here", 325,450)
 
 # rect 3
     fill(0)
-    if mousePressed:
-        rect(1000,250,350,250)
-        fill(255)
-        textSize (90)
-        text ("2 v 2", 1025,350)
-        textSize(32)
-        text ("Press Here", 1020,450)
-        text(presshere,1020,450)
+    rect(1000,250,350,250)
+    fill(255)
+    textSize (90)
+    text ("2 v 2", 1025,350)
+    textSize(32)
+    text ("Press Here", 1020,450)
+    text(presshere,1020,450)
 
 def onevone():
     print("done")
