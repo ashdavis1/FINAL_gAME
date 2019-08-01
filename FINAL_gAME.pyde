@@ -72,7 +72,7 @@ def setup():
     # minim=Minim(this)
 #Songs 
 
-    
+    firstScreen(x,y)
  
 def firstScreen(x, y):
 # start screen
@@ -109,18 +109,21 @@ def firstScreen(x, y):
     #         gameStarted = False
              
 
-def mousePressed():
-    global page
+def mouseClicked():
+    global page, startTimer
     if page == 0:
         secondScreen()
         page += 1
     if page == 1:
         if mouseX > 300 and mouseX < 550 and mouseY > 300 and mouseY < 550:
-            onevone()
+            # onevone()
             page = 2
+            startTimer = millis()
+            onevone()
         elif mouseX > 1000 and mouseX < 1350 and mouseY > 250 and mouseY < 500:
-            twovtwo()
+            # twovtwo()
             page = 3
+            twovtwo()
         else:
             print("done")
     # elif page == 4:
@@ -129,8 +132,8 @@ def mousePressed():
     #         twovtwo()
     #         page = page + 1
 
-    global gameStarted
-    gameStarted = True
+    # global gameStarted
+    # gameStarted = True
 
 
 def secondScreen():
@@ -149,27 +152,27 @@ def secondScreen():
 # rect 1
 
     fill(0)
-    if mousePressed:
-        rect(300, 250, 350, 250)
-        fill(255)
-        textSize(90)
-        text("1 v 1", 320, 350)
+    rect(300, 250, 350, 250)
+    fill(255)
+    textSize(90)
+    text("1 v 1", 320, 350)
     # text(onevone ,320,350)
-        textSize(32)
-        text("Press Here", 325, 450)
+    textSize(32)
+    text("Press Here", 325, 450)
 
 # rect 3
     fill(0)
-    if mousePressed:
-        rect(1000, 250, 350, 250)
-        fill(255)
-        textSize(90)
-        text("2 v 2", 1025, 350)
-        textSize(32)
-        text("Press Here", 1020, 450)
-        text(presshere, 1020, 450)
+
+    rect(1000, 250, 350, 250)
+    fill(255)
+    textSize(90)
+    text("2 v 2", 1025, 350)
+    textSize(32)
+    text("Press Here", 1020, 450)
+    text(presshere, 1020, 450)
 
 def onevone():
+    global gameStarted
     print("done")
     background(52, 67, 235)
     img = loadImage("android_logo.png")
@@ -188,29 +191,15 @@ def onevone():
     textSize(90)
     text("YO GOOGLE", 800, 1200)
     text(yogoogle, 570, 100)
-    
+    gameStarted = True
     
 
-    global gameStarted
-    global gameclock
-    global startTimer
-    global currentTime
 
-    currentTime = millis()
-    if gameStarted:
-        gameclock = (currentTime - startTimer)/1000
-        fill(240,244,247)
-        noStroke()
-        rect(1100,0,60,40)
-        f = createFont("Roboto-BlackItalic.ttf",20)
-        textFont(f)
-        fill(0,0,0)
-        text(gameclock, 1100,500)
-        seconds = 60
-        f = createFont("Roboto-BlackItalic.ttf", 40)
-        textFont(f)
-        fill(0, 0, 0)
-        text("Time:", 0, 500)
+    
+
+
+
+            
 # Song Selection
     numsongs=len(song_order)
     for i in range(numsongs):
@@ -227,6 +216,11 @@ def playMusic():
     print("peaches")
 def draw():
     global score
+    global gameStarted
+    global gameclock
+    global startTimer
+    global currentTime
+    
     if keyPressed and( key == 't' or key == 'T'):
         sf.play()
     if keyPressed and( key == 's' or key == 'S'):
@@ -261,14 +255,32 @@ def draw():
         
 # Song Selection
 
+    currentTime = millis()
+    if gameStarted:
+        gameclock = (currentTime - startTimer)/1000
+        print(gameclock)
+        fill(240,244,247)
+        noStroke()
+        f = createFont("Roboto-BlackItalic.ttf",20)
+        textFont(f)
+        fill(0,0,0)
+        textSize(40)
+        text(gameclock, 1050,1000)
+        seconds = 60
+        f = createFont("Roboto-BlackItalic.ttf", 40)
+        textFont(f)
+        fill(0, 0, 0)
+        text("Time:", 900, 1000)
+        if gameclock == 15:
+            gameclock == False
     
 
 
 # Gameclock
-def twovtwo():
-    pass
-    # textSize(80)
-    fill(255,0,0)
+# def twovtwo():
+#     pass
+#     # textSize(80)
+#     fill(255,0,0)
     
     
     
