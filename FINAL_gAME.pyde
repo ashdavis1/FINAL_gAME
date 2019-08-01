@@ -35,10 +35,11 @@ def setup():
     playerone = False
     playertwo = False
     presshere = "Press Here"
-    page = 1
+    page = 0
     score = 0
     currentTime = millis()
     startTimer = 0
+    ONEVONE = False
     song_order = ["PYT by Michael Jackson","If it isn't love by New edition", "Pretty brown eyes by Mint Condition"]
     correctanswer = "PYT by Michael Jackson"
     random.shuffle(song_order)
@@ -110,15 +111,16 @@ def firstScreen(x, y):
 
 def mousePressed():
     global page
-    if mousePressed:
+    if page == 0:
         secondScreen()
+        page += 1
     if page == 1:
         if mouseX > 300 and mouseX < 550 and mouseY > 300 and mouseY < 550:
             onevone()
-            page == 2
+            page = 2
         elif mouseX > 1000 and mouseX < 1350 and mouseY > 250 and mouseY < 500:
             twovtwo()
-            page == 3
+            page = 3
         else:
             print("done")
     # elif page == 4:
@@ -186,7 +188,29 @@ def onevone():
     textSize(90)
     text("YO GOOGLE", 800, 1200)
     text(yogoogle, 570, 100)
+    
+    
 
+    global gameStarted
+    global gameclock
+    global startTimer
+    global currentTime
+
+    currentTime = millis()
+    if gameStarted:
+        gameclock = (currentTime - startTimer)/1000
+        fill(240,244,247)
+        noStroke()
+        rect(1100,0,60,40)
+        f = createFont("Roboto-BlackItalic.ttf",20)
+        textFont(f)
+        fill(0,0,0)
+        text(gameclock, 1100,500)
+        seconds = 60
+        f = createFont("Roboto-BlackItalic.ttf", 40)
+        textFont(f)
+        fill(0, 0, 0)
+        text("Time:", 0, 500)
 # Song Selection
     numsongs=len(song_order)
     for i in range(numsongs):
@@ -232,7 +256,9 @@ def draw():
         else:
             print("No")
         score += 100
-    
+    if page == 2:
+        onevone()
+        
 # Song Selection
 
     
@@ -241,17 +267,17 @@ def draw():
 # Gameclock
 def twovtwo():
     pass
-    textSize(80)
+    # textSize(80)
     fill(255,0,0)
-    text("Round1",1000,100)
+    
     
     
     
         
-#     global gameStarted
-#     global gameclock
-#     global startTimer
-#     global currentTime
+    # global gameStarted
+    # global gameclock
+    # global startTimer
+    # global currentTime
 
     # currentTime = millis()
     # if gameStarted:
@@ -266,11 +292,11 @@ def twovtwo():
     #     seconds = 60
         
 
-    size(1680, 1000)
-    background(52, 67, 235)
+#     size(1680, 1000)
+#     background(52, 67, 235)
 
-    f = createFont("Roboto-BlackItalic.ttf", 40)
-    textFont(f)
-    fill(0, 0, 0)
-    text("Time:", 0, 500)
+    # f = createFont("Roboto-BlackItalic.ttf", 40)
+    # textFont(f)
+    # fill(0, 0, 0)
+    # text("Time:", 0, 500)
     
