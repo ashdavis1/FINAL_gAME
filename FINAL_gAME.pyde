@@ -2,9 +2,11 @@ add_library("sound")
 
 
     
-# import random 
+import random 
 
 def setup():
+    global song_order
+    global correctanswer
     global sf
     global twovtwo
     global page
@@ -19,7 +21,7 @@ def setup():
     img = loadImage("multipleandroids.jpg")
     image(img, 0, 0, 1680, 1000)
     
-    sf = SoundFile(this, "ransom.mp3")
+    sf = SoundFile(this, "PYT.mp3")
     playMusic()
     
     x = True
@@ -37,7 +39,9 @@ def setup():
     score = 0
     currentTime = millis()
     startTimer = 0
-    
+    song_order = ["PYT by Michael Jackson","If it isn't love by New edition", "Pretty brown eyes by Mint Condition"]
+    correctanswer = "PYT by Michael Jackson"
+    random.shuffle(song_order)
     # Throwback = {"PYT":minim.loadFile("PYT.mp3"), 
     #                 "If it isn't Love":minim.loadFile("If it Isn't Love.mp3"), 
     #                 "MyPrerogative":minim.loadFile("MyPrerogative.mp3"),
@@ -65,12 +69,13 @@ def setup():
     #        "Sugar":minim.loadFile("Sugar.mp3")}
            
     # minim=Minim(this)
+#Songs 
 
     
  
 def firstScreen(x, y):
 # start screen
-    fill(random(255), random(255), random(255))
+    fill(random.randint(0,255), random.randint(0,255), random.randint(0,255))
     textSize(90)
     text("YO GOOGLE", 800, 1200)
     text(yogoogle, 570, 100)
@@ -78,14 +83,15 @@ def firstScreen(x, y):
     fill(0)
     text("Click To Begin YO GAME", 600, 900)
 # second screen
-def draw():
-    pass
-    global gameActive
-    global gameclock
-    global gameStarted
-    global gameclock
-    global startTimer
-    global currentTime
+# def draw():
+#     pass
+#     global gameActive
+#     global gameclock
+#     global gameStarted
+#     global gameclock
+#     global startTimer
+#     global currentTime
+    
     
     # currentTime = millis()
     # if gameStarted == True:
@@ -133,7 +139,7 @@ def secondScreen():
     img = loadImage("android.jpg")
     image(img, 0, 0, 250, 150)
     image(img, 1450, 0, 250, 150)
-    fill(random(255), random(255), random(255))
+    fill(random.randint(0,255), random.randint(0,255), random.randint(0,255))
     textSize(90)
     text("YO GOOGLE", 800, 1200)
     text(yogoogle, 570, 100)
@@ -176,11 +182,19 @@ def onevone():
     textSize(40)
     text("Yo Score: ", 1400, 100)
     text(score, 1600, 100)
-    fill(random(255), random(255), random(255))
+    fill(random.randint(0,255), random.randint(0,255),random.randint(0,255))
     textSize(90)
     text("YO GOOGLE", 800, 1200)
     text(yogoogle, 570, 100)
-    
+
+# Song Selection
+    numsongs=len(song_order)
+    for i in range(numsongs):
+        song = song_order[i]
+        fill(255, 255, 102)
+        textSize(40)
+        text(song,400,i*100+200)
+
 #Songs Randomized from each category
 def playMusic():
     global sf
@@ -189,25 +203,38 @@ def playMusic():
     print("peaches")
 def draw():
     global score
-    if keyPressed and key == 't' or key == 'T':
+    if keyPressed and( key == 't' or key == 'T'):
         sf.play()
-    if keyPressed and key == 's' or key == 'S':
+    if keyPressed and( key == 's' or key == 'S'):
         sf.stop()
+# Keys for player 1
+
     if keyPressed and key == 'q' or key == 'Q':
         score += 100
-    else:
-        print("not right")
-        
+        print(song_order[0])
+        if song_order[0] == correctanswer:
+            print("you guessed it !")
+        else:
+            print("No")
+
     if keyPressed and key == 'W' or key == 'w':
         score += 100
-    else:
-        print("not right")
+        print(song_order[1])
+        if song_order[1] == correctanswer:
+            print("you guessed it !")
+        else:
+            print("No")
         
     if keyPressed and key == 'E' or key == 'e':
-        print("stop")
+        print(song_order[0])
+        if song_order[0] == correctanswer:
+            print("you guessed it !")
+        else:
+            print("No")
         score += 100
     
-    
+# Song Selection
+
     
 
 
